@@ -1,26 +1,42 @@
 Ext.define('calculator.view.main.MainView', {
-  extend: 'Ext.Container',
+  extend: 'Ext.tab.Panel',
   xtype: 'mainview',
   controller: 'mainviewcontroller',
+
   viewModel: {
     type: 'mainviewmodel'
   },
-  items: [
-    {
-      xtype: 'component',
-      html: '<a style="font-size:24px" target="_blank" href="https://docs-devel.sencha.com/extjs/7.0.0-CE/guides/quick_start/What_You_Will_Be_Coding.html">Quick Start Tutorial Here</a><p>'
+
+  defaults: {
+    scrollable: true,
+    userSelectable: {
+      bodyElement: true
     },
-    {
-      xtype: 'displayfield',
-      reference: 'df',
-      bind: {
-        value: '{clickTime}'
-      }
-    },
-    {
-      xtype: 'button',
-      text: 'Click Me!',
-      handler: 'onButtonClick'
-    }
-  ]
+    layout: 'center'
+  },
+
+  //childs components
+  items: [{
+    xtype: 'panel',
+    title: 'Calculadora',
+    items: [{ xtype: 'calculatorview' }],
+    iconCls: 'x-fa fa-calculator',
+    cls: 'card'
+    //hidden: ('{calculatorVisible}') ? false : true
+  },
+  {
+    xtype: 'panel',
+    title: 'Historial',
+    items: [{ xtype: 'historyview' }],
+    iconCls: 'x-fa fa-history',
+    cls: 'card'
+    //hidden: ('{calculatorVisible}') ? true : false
+  },
+  {
+    xtype: 'menus',
+    floating: true,
+    title: 'Test',
+    cls: 'card',
+    disabled: true
+  }]
 })

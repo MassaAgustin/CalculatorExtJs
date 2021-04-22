@@ -1,0 +1,117 @@
+Ext.define('calculator.view.calculator.CalculatorView', {
+    extend: 'Ext.Container',
+    xtype: 'calculatorview',
+    controller: 'calculatorviewcontroller',
+    viewModel: {},
+
+    store: {
+        type: 'histories'
+    },
+
+    //childs components
+    items: [{
+        id: 'calcText',
+        xtype: 'textfield',
+        bind: '{expression}',
+        label: 'Touch here for your keyboard',
+        validators: /^[-+]?[0-9]+([-+*/]+[-+]?[0-9]+)*$/
+    }, {
+        xtype: 'container',
+        layout: 'hbox',
+        items: [{
+            xtype: 'button',
+            text: '1',
+            width: 50,
+            handler: 'setNumber'
+        }, {
+            xtype: 'button',
+            text: '2',
+            width: 50,
+            handler: 'setNumber'
+        }, {
+            xtype: 'button',
+            text: '3',
+            width: 50,
+            handler: 'setNumber'
+        }, {
+            xtype: 'button',
+            text: '+',
+            width: 50,
+            handler: 'setNumber'
+        }]
+    }, {
+        xtype: 'container',
+        layout: 'hbox',
+        items: [{
+            xtype: 'button',
+            text: '4',
+            width: 50,
+            handler: 'setNumber'
+        }, {
+            xtype: 'button',
+            text: '5',
+            width: 50,
+            handler: 'setNumber'
+        }, {
+            xtype: 'button',
+            text: '6',
+            width: 50,
+            handler: 'setNumber'
+        }, {
+            xtype: 'button',
+            text: '-',
+            width: 50,
+            handler: 'setNumber'
+        }]
+    }, {
+        xtype: 'container',
+        layout: 'hbox',
+        items: [{
+            xtype: 'button',
+            text: '7',
+            width: 50,
+            handler: 'setNumber'
+        }, {
+            xtype: 'button',
+            text: '8',
+            width: 50,
+            handler: 'setNumber'
+        }, {
+            xtype: 'button',
+            text: '9',
+            width: 50,
+            handler: 'setNumber'
+        }, {
+            xtype: 'button',
+            text: '/',
+            width: 50,
+            handler: 'setNumber'
+        }]
+    }, {
+        xtype: 'container',
+        layout: 'hbox',
+        items: [{
+            xtype: 'button',
+            text: 'ce',
+            width: 50,
+            handler: 'resetExpression'
+        }, {
+            xtype: 'button',
+            text: '0',
+            width: 50,
+            handler: 'setNumber'
+        }, {
+            xtype: 'button',
+            text: '=',
+            width: 50,
+            handler: 'calculateExpression'
+        }, {
+            xtype: 'button',
+            text: '*',
+            width: 50,
+            handler: 'setNumber'
+        }]
+    }, {
+        margin: 100
+    }]
+})

@@ -3,6 +3,8 @@ Ext.define('calculator.Application', {
   name: 'calculator',
   requires: ['calculator.*'],
 
+  defaultToken: 'home',
+
   launch: function () {
     Ext.Viewport.add([{xtype: 'mainview'}])
   },
