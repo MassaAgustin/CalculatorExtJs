@@ -24,6 +24,13 @@ Ext.define('calculator.view.history.HistoryView', {
         text: 'Resultado',
         flex: 1,
         dataIndex: 'result'
+    }],
+
+    items: [{
+        xtype: 'button',
+        text: 'Reset',
+        labelStyle: 'font-weight: bold',
+        handler: 'resetGrid'
     }]
 
 })
